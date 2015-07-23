@@ -5,6 +5,7 @@
  */
 package lesson1;
 
+import javax.sql.rowset.serial.SerialRef;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +50,9 @@ public class Lesson1 {
         "alpha", "bravo", "charlie", "delta", "echo", "foxtrot");
 
     /* YOUR CODE HERE */
+    StringBuilder builder = new StringBuilder();
+    list.forEach(s -> builder.append(s.charAt(0)));
+    System.out.println(builder.toString());
   }
 
   /**
@@ -61,6 +65,8 @@ public class Lesson1 {
         "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
 
     /* YOUR CODE HERE */
+    list.removeIf(s -> s.length() % 2 != 0);
+    list.forEach(System.out::println);
   }
 
   /**
@@ -73,6 +79,8 @@ public class Lesson1 {
         "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
 
     /* YOUR CODE HERE */
+    list.replaceAll(String::toUpperCase);
+    list.forEach(System.out::println);
   }
 
   /**
@@ -88,6 +96,9 @@ public class Lesson1 {
     map.put("a", 1);
 
     /* YOUR CODE HERE */
+    StringBuilder builder = new StringBuilder();
+    map.forEach((key, value) -> builder.append(key).append(value));
+    System.out.println(builder.toString());
   }
 
   /**
@@ -99,6 +110,7 @@ public class Lesson1 {
     List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
     /* YOUR CODE HERE */
+    new Thread(() -> list.forEach(System.out::println)).start();
   }
 
   /**
